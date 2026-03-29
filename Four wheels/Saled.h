@@ -15,7 +15,7 @@ struct Saled {
 	char Address[300] = "";
 	char ID[11] = "";
 	Date Sale_date;
-
+	 
 
 	void Sale_car() {
 		cout << "Enter car VIN code (17 symbols): " << endl;
