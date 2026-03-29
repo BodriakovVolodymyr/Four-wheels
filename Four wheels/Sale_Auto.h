@@ -10,6 +10,7 @@ struct Sale_auto {
 	char VIN[18] = "";
 	int Production_year = 0;
 	double Engine_volume = 0.0;
+	char Color[20] = "";
 	char Body_type[30] = "";
 	double Cost = 0;
 	bool Saled = false;
@@ -29,6 +30,8 @@ struct Sale_auto {
 		cout << "Input engine volume: ";
 		cin >> Engine_volume;
 		cin.ignore();
+		cout << "Input car color: ";
+		cin.getline(Color, 20);
 		cout << "Input type of body: ";
 		cin.getline(Body_type, 30);
 		cout << "Input car cost in $: ";
@@ -45,6 +48,7 @@ struct Sale_auto {
 			cout << " VIN code: " << VIN << endl;
 			cout << " Year of product: " << Production_year << endl;
 			cout << " Engine volume: " << fixed << setprecision(1) << Engine_volume << endl;
+			cout << " Car color: " << Color << endl;
 			cout << " Type of body: " << Body_type << endl;
 			cout << " Price: " << Cost << "$" << endl;
 			cout << "╚═══════════════════════════════╝" << endl;
@@ -60,6 +64,7 @@ struct Sale_auto {
 			cout << " VIN code: " << VIN << endl;
 			cout << " Year of product: " << Production_year << endl;
 			cout << " Engine volume: " << fixed << setprecision(1) << Engine_volume << endl;
+			cout << " Car color: " << Color << endl;
 			cout << " Type of body: " << Body_type << endl;
 			cout << " Price: " << Cost << "$" << endl;
 			cout << "╚═══════════════════════════════╝" << endl;

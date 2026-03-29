@@ -22,18 +22,16 @@ int main()
 
 	FILE* Saled_Auto_file = nullptr;
 	
-	
-
 	fopen_s(&Saled_Auto_file, "Saled_Auto.txt", "r");
 	
 	if (Saled_Auto_file != nullptr)
 	{
 		Sale_auto temp;
 		
-		while (fscanf_s(Saled_Auto_file, "%s %s %s %d %lf %s %lf %d",
+		while (fscanf_s(Saled_Auto_file, "%s %s %s %d %lf %s %s %lf %d",
 			temp.Brand, 50, temp.Model, 50, temp.VIN, 18, &temp.Production_year,
-			&temp.Engine_volume, temp.Body_type, 30, &temp.Cost, &temp.Saled
-		) == 8)
+			&temp.Engine_volume, temp.Color, 20, temp.Body_type, 30, &temp.Cost, &temp.Saled
+		) == 9)
 		{
 			addItemBack(arr, N, temp);
 		}
@@ -231,9 +229,9 @@ int main()
 	{
 		for (int i = 0; i < N; i++)
 		{
-			fprintf(Saled_Auto_file, "%s %s %s %d %lf %s %lf %d\n",
+			fprintf(Saled_Auto_file, "%s %s %s %d %lf %s %s %lf %d\n",
 				arr[i].Brand, arr[i].Model, arr[i].VIN, arr[i].Production_year,
-				arr[i].Engine_volume, arr[i].Body_type, arr[i].Cost, arr[i].Saled);
+				arr[i].Engine_volume,arr[i].Color, arr[i].Body_type, arr[i].Cost, arr[i].Saled);
 		}
 		fclose(Saled_Auto_file);
 
