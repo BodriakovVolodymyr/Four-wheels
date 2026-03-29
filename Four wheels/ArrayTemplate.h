@@ -482,7 +482,7 @@ void carFind(T* arr, int N, const char* user) {
 
 void pause()
 {
-	cout  << "PRESS ENTHER TO GO BACK";
+	cout  << "PRESS ENTHER TO GO MENU";
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	cin.get();
 }

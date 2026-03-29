@@ -11,17 +11,46 @@
 int main()
 {
 	system("chcp 65001");
-	int N = 5;
-	Sale_auto* arr = new Sale_auto[N]{
-		{"Volkswagen","Tiguan","1N4AL3AP0FC224651",2019,2.0,"Crossover",17700.00},
-		{"Honda","Accord","2G1FC1EV5A9000507",2017,3.5,"Sedan",16500.00},
-		{"Ford","Focus","2G4GK5EX5F9180596",2014,1.6,"Wagon",8300.00},
-		{"Audi","A5","2G4WS52JX31277962",2011,1.8,"Hatchback",12699.00},
-		{"Mercedes-Benz","E220","1C4BJWDG3FL524623",2018,2.0,"Coupe",37999.00},
-	};
+	system("cls");
+	int N = 0;
+	Sale_auto* arr = nullptr;
+	
 	Saled* arrSaled = nullptr;
 	int sizeSaled = 0;
 	int menu = 0;
+
+
+	FILE* Saled_Auto_file = nullptr;
+	
+	
+
+	fopen_s(&Saled_Auto_file, "Saled_Auto.txt", "r");
+	
+	if (Saled_Auto_file != nullptr)
+	{
+		Sale_auto temp;
+		
+		while (fscanf_s(Saled_Auto_file, "%s %s %s %d %lf %s %lf %d",
+			temp.Brand, 50, temp.Model, 50, temp.VIN, 18, &temp.Production_year,
+			&temp.Engine_volume, temp.Body_type, 30, &temp.Cost, &temp.Saled
+		) == 8)
+		{
+			addItemBack(arr, N, temp);
+		}
+		
+		fclose(Saled_Auto_file);
+		cout << "\t\t\t\t\t\t╔═══════════════════════════════╗\n";
+		cout << "\t\t\t\t\t\t║      WELLCOME BACK  👋🏼😉      ║\n";
+		cout << "\t\t\t\t\t\t╚═══════════════════════════════╝\n";
+		pause();
+	}
+	else {
+
+
+	};
+
+
+
 
 
 	do {
@@ -191,5 +220,28 @@ int main()
 		}
 	} while (menu != 0);
 
+	Saled_Auto_file = nullptr;
+	fopen_s(&Saled_Auto_file, "Saled_Auto.txt", "w");
+	if (Saled_Auto_file == nullptr)
+	{
+		cout << "Error to write Sale Auto file";
+		return 1;
+	}
+	else
+	{
+		for (int i = 0; i < N; i++)
+		{
+			fprintf(Saled_Auto_file, "%s %s %s %d %lf %s %lf %d\n",
+				arr[i].Brand, arr[i].Model, arr[i].VIN, arr[i].Production_year,
+				arr[i].Engine_volume, arr[i].Body_type, arr[i].Cost, arr[i].Saled);
+		}
+		fclose(Saled_Auto_file);
+
+	}
+
+
+
+
+	
 	return 0;
 }
